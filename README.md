@@ -7,11 +7,20 @@ The script provides the following functionality:
 2. Create SASE Connections on a Site for all or listed public circuits (Action: **config_saseconn**)
 3. Delete SASE Connections on a Site (Action: **delete_saseconn**)
 
+### Authentication:
+Please create a Service Account via _Settings -> Identity and Access_ portal and save the client ID, client secret and TSG ID in the **prismasase_settings.py** file.
+
+```
+PRISMASASE_CLIENT_ID="paste client ID"
+PRISMASASE_CLIENT_SECRET="paste client secret"
+PRISMASASE_TSG_ID="paste TSG ID"
+```
+
 ### Requirements
 * Active Prisma SD-WAN Account
 * Python >=3.7
 * Python modules:
-    * Prisma SASE Python SDK >= 6.1.2b1 - <https://github.com/PaloAltoNetworks/prisma-sase-sdk-python>
+    * Prisma SASE Python SDK >= 6.3.1b1 - <https://github.com/PaloAltoNetworks/prisma-sase-sdk-python>
 
 ### License
 MIT
