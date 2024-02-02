@@ -17,7 +17,7 @@ PRISMASASE_TSG_ID="paste TSG ID"
 ```
 
 ### Requirements
-* Active Prisma SD-WAN Account
+* Active Prisma SASE Account
 * Python >=3.7
 * Python modules:
     * Prisma SASE Python SDK >= 6.3.1b1 - <https://github.com/PaloAltoNetworks/prisma-sase-sdk-python>
