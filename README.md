@@ -100,4 +100,5 @@ Config:
 ### Version
 | Version | Build | Changes |
 | ------- | ----- | ------- |
-| **1.0.0** | **b1** | Initial Release |
+| **1.0.0** | **b2** | Added support to bind security zones to SASE tunnels |
+|           | **b1** | Initial Release |
