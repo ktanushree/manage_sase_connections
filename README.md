@@ -1,5 +1,5 @@
 # manage_sase_connections
-Script to manage Prisma SD-WAN Easy Onboarding (SASE Connections).
+Script to manage Prisma SASE Easy Onboarding (SASE Connections).
 
 This script can be used to manage SASE Connections created by Prisma SD-WAN Easy Onboarding. 
 The script provides the following functionality:
