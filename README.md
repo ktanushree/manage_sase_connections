@@ -1,11 +1,12 @@
 # manage_sase_connections
-Script to manage Prisma SASE Easy Onboarding (SASE Connections).
+Script to manage Prisma SD-WAN Easy Onboarding (SASE Connections).
 
 This script can be used to manage SASE Connections created by Prisma SD-WAN Easy Onboarding. 
 The script provides the following functionality:
 1. Retrieve PA Locations that have BW Allocated (Action: **list_palocations**)
 2. Create SASE Connections on a Site for all or listed public circuits (Action: **config_saseconn**)
 3. Delete SASE Connections on a Site (Action: **delete_saseconn**)
+4. Bind Security Zone to SASE tunnels (Action: **bind_zone**)
 
 ### Authentication:
 Please create a Service Account via _Settings -> Identity and Access_ portal and save the client ID, client secret and TSG ID in the **prismasase_settings.py** file.
@@ -17,7 +18,7 @@ PRISMASASE_TSG_ID="paste TSG ID"
 ```
 
 ### Requirements
-* Active Prisma SASE Account
+* Active Prisma SD-WAN Account
 * Python >=3.7
 * Python modules:
     * Prisma SASE Python SDK >= 6.3.1b1 - <https://github.com/PaloAltoNetworks/prisma-sase-sdk-python>
@@ -81,6 +82,12 @@ Delete tunnels created to Prisma Access at a site
 ```
 ./manage_sase_connection.py -S <SiteName> -A delete_saseconn
 ```
+#### Bind Security Zone
+Bind security zone to SASE tunnels
+```
+./manage_sase_connection.py -S <SiteName> -A bind_zone -Z <ZoneName>
+```
+
 
 ### Help Text:
 ```
