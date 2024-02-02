@@ -3,7 +3,7 @@
 """
 Script to manage Prisma SASE Connections (Easy Onboarding)
 Author: tkamath@paloaltonetworks.com
-Version: 1.0.0b2
+Version: 1.0.0b3
 """
 import prisma_sase
 import argparse
@@ -392,14 +392,17 @@ def delete_saseconnection(sase_session, sitename):
                                                   prismasase_connection_id=saseconnection["id"],
                                                   data=saseconnection)
             if resp.cgx_status:
-                print("INFO: Circuits unbound from SASE Connection. Deleting..")
-                resp = sase_session.delete.prismasase_connections(site_id=siteid,
-                                                         prismasase_connection_id=saseconnection["id"])
-                if resp.cgx_status:
-                    print("INFO: SASE Connection at Site {} deleted".format(sitename))
-                else:
-                    print("ERR: Could not delete SASE Connection")
-                    prisma_sase.jd_detailed(resp)
+                print("INFO: Circuits unbound from SASE Connection.")
+                print("INFO: SASE Connection cleanup request sent to Prisma SASE Controller.")
+
+                # resp = sase_session.delete.prismasase_connections(site_id=siteid,
+                #                                          prismasase_connection_id=saseconnection["id"])
+                # if resp.cgx_status:
+                #     print("INFO: SASE Connection at Site {} deleted".format(sitename))
+                # else:
+                #     print("ERR: Could not delete SASE Connection")
+                #     prisma_sase.jd_detailed(resp)
+
             else:
                 print("ERR: Could not edit SASE Connection")
                 prisma_sase.jd_detailed(resp)
