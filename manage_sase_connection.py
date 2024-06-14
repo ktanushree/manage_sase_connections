@@ -3,7 +3,7 @@
 """
 Script to manage Prisma SASE Connections (Easy Onboarding)
 Author: tkamath@paloaltonetworks.com
-Version: 1.0.0b3
+Version: 1.0.0b4
 """
 import prisma_sase
 import argparse
@@ -457,7 +457,7 @@ def go():
     ############################################################################
     parser = argparse.ArgumentParser(description="{0}.".format("Prisma SD-WAN UTD Lab Setup"))
     config_group = parser.add_argument_group('Config', 'Details for the tenant you wish to operate')
-    config_group.add_argument("--action", "-A", help="Action. Allowed Actions: list_palocations, delete_saseconn, config_saseconn, bind_zone", default=None)
+    config_group.add_argument("--action", "-A", help="Action. Allowed Actions: list_palocations, config_saseconn, bind_zone", default=None)
     config_group.add_argument("--sitename", "-S", help="Site Name", default=None)
     config_group.add_argument("--palocation", "-PL", help="PA Location", default=None)
     config_group.add_argument("--circuit_names", "-CN", help="Comma separated circuit list (Site WAN Interface Names). For all public circuits, use keyword: ALL", default="ALL")
@@ -580,7 +580,8 @@ def go():
         config_saseconnection(sase_session=sase_session, sitename=sitename, circuit_names_list=circuit_names_list, palocation=palocation)
 
     elif action == DELETE:
-        delete_saseconnection(sase_session=sase_session, sitename=sitename)
+        print("Delete action is currently not supported by the script")
+        #delete_saseconnection(sase_session=sase_session, sitename=sitename)
 
     elif action == BIND:
         bind_zones(sase_session=sase_session, sitename=sitename, zone=zone)
