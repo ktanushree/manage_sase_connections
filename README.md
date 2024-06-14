@@ -5,8 +5,7 @@ This script can be used to manage SASE Connections created by Prisma SD-WAN Easy
 The script provides the following functionality:
 1. Retrieve PA Locations that have BW Allocated (Action: **list_palocations**)
 2. Create SASE Connections on a Site for all or listed public circuits (Action: **config_saseconn**)
-3. Delete SASE Connections on a Site (Action: **delete_saseconn**)
-4. Bind Security Zone to SASE tunnels (Action: **bind_zone**)
+3. Bind Security Zone to SASE tunnels (Action: **bind_zone**)
 
 ### Authentication:
 Please create a Service Account via _Settings -> Identity and Access_ portal and save the client ID, client secret and TSG ID in the **prismasase_settings.py** file.
@@ -77,11 +76,6 @@ Create SASE tunnel on a few circuits at a site
 /manage_sase_connection.py -S <SiteName> -CN "<CircuitName1>,<CircuitName2>" -A config_saseconn -PL <pa_location>
 ```
 
-#### Delete SASE Connection
-Delete tunnels created to Prisma Access at a site
-```
-./manage_sase_connection.py -S <SiteName> -A delete_saseconn
-```
 #### Bind Security Zone
 Bind security zone to SASE tunnels
 ```
@@ -103,7 +97,7 @@ Config:
   Details for the tenant you wish to operate
 
   --action ACTION, -A ACTION
-                        Action. Allowed Actions: list_palocations, delete_saseconn, config_saseconn
+                        Action. Allowed Actions: list_palocations, config_saseconn
   --sitename SITENAME, -S SITENAME
                         Site Name
   --palocation PALOCATION, -PL PALOCATION
@@ -116,6 +110,7 @@ Config:
 ### Version
 | Version | Build | Changes |
 | ------- | ----- | ------- |
-| **1.0.0** | **b3** | Updated SASE Connection Delete workflow |
+| **1.0.0** | **b4** | Removed support for delete |
+|           | **b3** | Updated SASE Connection Delete workflow |
 |           | **b2** | Added support to bind security zones to SASE tunnels |
 |           | **b1** | Initial Release |
